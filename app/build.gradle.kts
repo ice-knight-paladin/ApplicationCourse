@@ -44,6 +44,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.fragment.ktx)
+
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -53,15 +55,15 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     // Dagger-Hilt
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    implementation("androidx.camera:camera-lifecycle:1.4.1")
-    implementation("androidx.work:work-runtime-ktx:2.10.0")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.work.runtime.ktx)
+    testImplementation(libs.junit.jupiter)
     ksp(libs.hilt.android.compiler)
 
     // LifeCycle ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     // Tests
     testImplementation("junit:junit:4.13.2")
