@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/colorTextFilter" />
+            <corners android:radius="30dp" />
+            <stroke
+                android:width="10dp"
+                android:color="@color/colorTextFilter" />
+        </shape>
+    </item>
+</layer-list>

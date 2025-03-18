@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="backgroundSearch">#25252a</color>
+    <color name="colorTextFilter">#11af51</color>
+    <color name="colorTextSearch">#808184</color>
+    <color name="backgroundHome">#151515</color>
+    <color name="backgroundWindow">#24252a</color>
+    <color name="textDescription">#9e9fa1</color>
+    <color name="sectionOnStart">#41464e</color>
+    <color name="vk">#2583ec</color>
+    <color name="classmates">#f86e04</color>
 </resources>
