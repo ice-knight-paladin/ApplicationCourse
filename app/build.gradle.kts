@@ -44,6 +44,8 @@ android {
 }
 
 dependencies {
+    //actvity and fragment
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
 
     // Retrofit

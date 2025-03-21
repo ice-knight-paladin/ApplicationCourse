@@ -6,6 +6,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ApiService {
-    @GET("u/0/uc?id=15arTK7XT2b7Yv4BJsmDctA4Hg-BbS8-q&export=download")
+    @GET("u/0/uc?id=1BxT94DmvthLqTAK6Ezt_VcKFg1-e-U0L&export=download")
     fun getCourses(): Call<CourseResponse>
 }

@@ -19,6 +19,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var cashBase: Repository.CashBase
 
+    var onBackPressedListener: OnBackPressedListener? = null
+
+    override fun onBackPressed() {
+        if (onBackPressedListener?.onBackPressed() != true) {
+            super.onBackPressed()
+        }
+    }
+
+    interface OnBackPressedListener {
+        fun onBackPressed(): Boolean
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,11 +40,11 @@ class MainActivity : AppCompatActivity() {
             cashBase = Repository.CashBase(Core(this@MainActivity).cashDao())
             //TEST
             //cashBase.delete(cashBase.courseList()[0])
-            if (cashBase.courseList().isEmpty()){
+            if (cashBase.courseList().isEmpty()) {
                 cashBase.add(Cash(0, "not first"))
                 startActivity(Intent(this@MainActivity, StartActivity::class.java))
                 finish()
-            }else{
+            } else {
                 navigateTo(FragmentHome())
             }
         }

@@ -18,7 +18,7 @@ class CourseAdapter : RecyclerView.Adapter<CourseViewHolder>() {
         isFavo = a
     }
 
-    fun sortCourses() {
+    fun sortCourses() : Boolean{
         if (isSort) {
             listCourses.sortBy { SimpleDateFormat("yyyy-MM-dd").parse(it.startDate) }
             isSort = false
@@ -28,6 +28,7 @@ class CourseAdapter : RecyclerView.Adapter<CourseViewHolder>() {
         }
         Log.d("sdadasd", "$listCourses")
         notifyDataSetChanged()
+        return isSort
     }
 
     fun add(course: Course) {
@@ -72,8 +73,15 @@ class CourseAdapter : RecyclerView.Adapter<CourseViewHolder>() {
                     0,
                     0
                 )
+            }else{
+                hasLike.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    R.drawable.ic_favo,
+                    0,
+                    0,
+                    0
+                )
             }
-            image.setImageResource(R.drawable.img)
+            image1.setImageResource(R.drawable.img)
         }
     }
 

@@ -71,9 +71,10 @@
             app:layout_constraintTop_toBottomOf="@+id/filter" />
 
         <TextView
+            android:id="@+id/filterImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_filter" />
+            android:background="@drawable/text_filter_down" />
     </LinearLayout>
 
 
@@ -84,6 +85,6 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="10"
-        android:layout_marginBottom="70dp"/>
+        android:layout_marginBottom="100dp"/>
 
 </LinearLayout>
