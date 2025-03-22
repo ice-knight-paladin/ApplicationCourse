@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.testaplacation.databinding.ActivityEnteryBinding
 
-class EnteryActivity : AppCompatActivity() {
+class EnterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEnteryBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class EnteryActivity : AppCompatActivity() {
             try {
                 startActivity(intent)
             } catch (e: Exception) {
-
+                Toast.makeText(this, "Невозможно открыть ссылку", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -30,12 +30,12 @@ class EnteryActivity : AppCompatActivity() {
             try {
                 startActivity(intent)
             } catch (e: Exception) {
-
+                Toast.makeText(this, "Невозможно открыть ссылку", Toast.LENGTH_SHORT).show()
             }
         }
 
         binding.btnEntry.setOnClickListener {
-            startActivity(Intent(this@EnteryActivity, MainActivity::class.java))
+            startActivity(Intent(this@EnterActivity, MainActivity::class.java))
         }
     }
 }

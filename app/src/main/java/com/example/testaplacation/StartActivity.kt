@@ -3,8 +3,6 @@ package com.example.testaplacation
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.testaplacation.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
@@ -15,7 +13,7 @@ class StartActivity : AppCompatActivity() {
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnContinue.setOnClickListener{
-            startActivity(Intent(this@StartActivity, EnteryActivity::class.java))
+            startActivity(Intent(this@StartActivity, EnterActivity::class.java))
             finish()
         }
     }

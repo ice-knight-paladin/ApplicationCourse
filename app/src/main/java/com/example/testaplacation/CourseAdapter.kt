@@ -1,6 +1,5 @@
 package com.example.testaplacation
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,28 +10,28 @@ import java.text.SimpleDateFormat
 class CourseAdapter : RecyclerView.Adapter<CourseViewHolder>() {
 
     private var listCourses = mutableListOf<Course>()
-    private var isFavo = false
+    private var isLike = false
     private var isSort = true
 
-    fun setIsFavo(a: Boolean) {
-        isFavo = a
+    fun setIsLike(a: Boolean) {
+        isLike = a
     }
 
-    fun sortCourses() : Boolean{
+    fun sortCourses() {
         if (isSort) {
             listCourses.sortBy { SimpleDateFormat("yyyy-MM-dd").parse(it.startDate) }
             isSort = false
-        } else {//В обратном порядке
+        } else {
             listCourses.sortByDescending { SimpleDateFormat("yyyy-MM-dd").parse(it.startDate) }
             isSort = true
         }
-        Log.d("sdadasd", "$listCourses")
         notifyDataSetChanged()
-        return isSort
     }
 
+    fun getIsSort() = isSort
+
     fun add(course: Course) {
-        if (isFavo) {
+        if (isLike) {
             if (course.hasLike) {
                 listCourses.add(course)
             }
@@ -49,9 +48,7 @@ class CourseAdapter : RecyclerView.Adapter<CourseViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseViewHolder {
         return CourseViewHolder(
             ItemCourseBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }
@@ -68,17 +65,11 @@ class CourseAdapter : RecyclerView.Adapter<CourseViewHolder>() {
             courseRate.text = course.rate
             if (course.hasLike) {
                 hasLike.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                    R.drawable.ic_favo_green,
-                    0,
-                    0,
-                    0
+                    R.drawable.ic_favo_green, 0, 0, 0
                 )
-            }else{
+            } else {
                 hasLike.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                    R.drawable.ic_favo,
-                    0,
-                    0,
-                    0
+                    R.drawable.ic_favo, 0, 0, 0
                 )
             }
             image1.setImageResource(R.drawable.img)

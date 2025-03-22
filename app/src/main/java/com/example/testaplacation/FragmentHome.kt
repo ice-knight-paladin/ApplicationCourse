@@ -2,7 +2,6 @@ package com.example.testaplacation
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
@@ -35,22 +34,20 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
         binding.recyclerCourses.adapter = adapter
-        adapter.setIsFavo(false)
+        adapter.setIsLike(false)
         viewModel.users.observe(viewLifecycleOwner) {
             coursesList.addAll(it[0].courses)
             adapter.add(coursesList)
             adapter.notifyDataSetChanged()
         }
-        Log.d("qfrqwffwefg", "${viewModel.users.value}")
 
         binding.filter.setOnClickListener {
-            val a = adapter.sortCourses()
-            if (a) {
+            adapter.sortCourses()
+            if (adapter.getIsSort()) {
                 binding.filterImage.background = resources.getDrawable(R.drawable.text_filter_up)
             } else {
                 binding.filterImage.background = resources.getDrawable(R.drawable.text_filter_down)
             }
-
         }
     }
 
@@ -80,5 +77,4 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
             .setNegativeButton("Нет", null)
             .show()
     }
-
 }

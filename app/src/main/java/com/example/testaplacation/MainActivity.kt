@@ -38,8 +38,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         CoroutineScope(Dispatchers.IO).launch {
             cashBase = Repository.CashBase(Core(this@MainActivity).cashDao())
-            //TEST
-            //cashBase.delete(cashBase.courseList()[0])
             if (cashBase.courseList().isEmpty()) {
                 cashBase.add(Cash(0, "not first"))
                 startActivity(Intent(this@MainActivity, StartActivity::class.java))
